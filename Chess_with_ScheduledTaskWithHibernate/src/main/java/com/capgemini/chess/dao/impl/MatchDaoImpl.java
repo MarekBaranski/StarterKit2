@@ -21,7 +21,7 @@ public class MatchDaoImpl extends AbstractDao<MatchEntity, Long> implements Matc
 	public MatchTO showMatchById(long matchId) throws ChessException {
 
 		if (findOne(matchId) == null) {
-			//TODO sa
+			
 			throw new ChessException(ChessException.MATCHNOTFOUND);
 		} else
 			return MatchMapper.map(findOne(matchId));

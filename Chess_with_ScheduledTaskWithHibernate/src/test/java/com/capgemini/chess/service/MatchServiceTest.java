@@ -1,4 +1,4 @@
-package com.capgemini.chess.dao;
+package com.capgemini.chess.service;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
@@ -24,21 +24,21 @@ import com.capgemini.chess.service.to.UserProfileTO;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @Transactional
-public class MatchDaoImplTest {
-
+public class MatchServiceTest {
+	
 	@Autowired
 	private EntityManager em;
 	
 	@Autowired
-	private MatchDao matchDao;
+	private MatchService matchService;
 
 	@Autowired
-	private UsersDao userDao;
+	private UserService userService;
 
 	@Test
 	public void testAutowiredSuccessful() {
 
-		assertNotNull(matchDao);
+		assertNotNull(matchService);
 
 	}
 
@@ -46,7 +46,7 @@ public class MatchDaoImplTest {
 	public void shouldFindMatchById() throws ChessException {
 
 		// when
-		MatchTO match = matchDao.showMatchById(9);
+		MatchTO match = matchService.showMatchById(9);
 		// than
 		assertNotNull(match);
 		assertEquals(ResultMatch.WIN2, match.getResult());
@@ -58,7 +58,7 @@ public class MatchDaoImplTest {
 	public void shouldNotFindMatchById() throws ChessException {
 
 		// when
-		MatchTO findMatch = matchDao.showMatchById(22);
+		MatchTO findMatch = matchService.showMatchById(22);
 		// than
 		fail("This method should throw SomeException");
 	}
@@ -68,7 +68,7 @@ public class MatchDaoImplTest {
 		// given
 
 		// when
-		List<MatchTO> matchTO = matchDao.showHistoryOfMatch();
+		List<MatchTO> matchTO = matchService.showHistoryOfMatch();
 		// then
 
 		assertFalse(matchTO.isEmpty());
@@ -80,7 +80,7 @@ public class MatchDaoImplTest {
 		// given
 		long userId = 1;
 		// when
-		List<MatchTO> matchTO = matchDao.showAllMatchForUserById(userId);
+		List<MatchTO> matchTO = matchService.showAllMatchForUserById(userId);
 		// then
 
 		assertFalse(matchTO.isEmpty());
@@ -93,7 +93,7 @@ public class MatchDaoImplTest {
 		// given
 
 		// when
-		List<MatchTO> matchTO = matchDao.showMatchWhereResultIsDrawn();
+		List<MatchTO> matchTO = matchService.showMatchWhereResultIsDrawn();
 		// then
 
 		assertFalse(matchTO.isEmpty());
@@ -105,28 +105,29 @@ public class MatchDaoImplTest {
 	public void testShouldAddNewMatch() throws ChessException {
 		// given
 		MatchTO match = new MatchTO();
-		UserProfileTO user1 = userDao.findProfileById(1);
-		UserProfileTO user2 = userDao.findProfileById(7);
+		UserProfileTO user1 = userService.findProfileById(1);
+		UserProfileTO user2 = userService.findProfileById(7);
 
 		match.setResult(ResultMatch.WIN2);
 		match.setUser1(user1);
 		match.setUser2(user2);
 
 		// when
-		int sizeBefore = matchDao.showHistoryOfMatch().size();
+		int sizeBefore = matchService.showHistoryOfMatch().size();
 		
-		matchDao.addNewMatch(match);
+		matchService.addNewMatch(match);
 		em.flush();
 		em.clear();
 		
-		int sizeAfter = matchDao.showHistoryOfMatch().size();
+		int sizeAfter = matchService.showHistoryOfMatch().size();
 		
 		
 		// then
 		assertEquals(++sizeBefore, sizeAfter);
-		assertEquals("jeden", matchDao.showHistoryOfMatch().get(9).getUser1().getLogin());
-		
+		assertEquals("jeden", matchService.showHistoryOfMatch().get(9).getUser1().getLogin());
+		assertEquals(10, matchService.showHistoryOfMatch().get(9).getId());
 
 	}
+
 
 }
