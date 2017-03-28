@@ -8,10 +8,11 @@ import com.capgemini.chess.service.to.UserProfileTO;
 import com.capgemini.chess.service.to.UserUpdateTO;
 
 public class UserUpdateMapper {
-	
+
 	public static UserUpdateTO map(UserEntity userEntity) {
 		if (userEntity != null) {
 			UserUpdateTO userUpdateTO = new UserUpdateTO();
+			userUpdateTO.setId(userEntity.getId());
 			userUpdateTO.setLogin(userEntity.getLogin());
 			userUpdateTO.setPassword(userEntity.getPassword());
 			userUpdateTO.setName(userEntity.getName());
@@ -27,6 +28,9 @@ public class UserUpdateMapper {
 	public static UserEntity map(UserUpdateTO userUpdateTO) {
 		if (userUpdateTO != null) {
 			UserEntity userEntity = new UserEntity();
+
+			userEntity.setId(userUpdateTO.getId());
+
 			userEntity.setLogin(userUpdateTO.getLogin());
 			userEntity.setPassword(userUpdateTO.getPassword());
 			userEntity.setName(userUpdateTO.getName());

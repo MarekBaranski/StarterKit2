@@ -21,11 +21,20 @@ public class UserDaoImple extends AbstractDao<UserEntity, Long> implements Users
 			return UserProfileMapper.map(findOne(id));
 
 	}
+	
+	@Override
+	public UserUpdateTO findProfileToUpdateById(long id) throws ChessException {
+		if (findOne(id)==null) {
+			throw new ChessException(ChessException.PROFILENOTFOUND);
+		} else
+			return UserUpdateMapper.map(findOne(id));
+	}
 
 	@Override
 	public UserUpdateTO updateProfile(UserUpdateTO userUpdateProfile) {
-		return UserUpdateMapper.map(save(UserUpdateMapper.map(userUpdateProfile)));
+		return UserUpdateMapper.map(update(UserUpdateMapper.map(userUpdateProfile)));
 	}
+
 
 	// @Override
 	// public void updateProfile(UserUpdateTO userUpdateProfile) {

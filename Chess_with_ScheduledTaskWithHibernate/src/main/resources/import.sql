@@ -3,7 +3,7 @@ INSERT INTO baza_chess.user (login, password, name, surname, email, about_me, li
 INSERT INTO baza_chess.user (login, password, name, surname, email, about_me, life_motto) values ('dwa', 'b2', 'UserDwa', 'Drugi', 'dwa@wp.pl', 'lubie bardzo szachy','Gram od urodzeni');
 INSERT INTO baza_chess.user (login, password, name, surname, email, about_me, life_motto) values ('trzy', 'c3', 'UserTrzy', 'trzeci', 'trzy@wp.pl', 'lubie super szachy','Gram bo chcę');
 INSERT INTO baza_chess.user (login, password, name, surname, email, about_me, life_motto) values ('cztery', 'd4', 'UserCztery', 'Czwarty', 'cztery@wp.pl', 'lubie trochę szachy','Gram czasami');
-INSERT INTO baza_chess.user (login, password, name, surname, email, about_me, life_motto) values ('pięć', 'e5', 'UserPiec', 'Piaty', 'piec@wp.pl', 'nie lubie grac w szachy','Gram bo moj brat gra');
+INSERT INTO baza_chess.user (login, password, name, surname, email, about_me, life_motto) values ('piec', 'e5', 'UserPiec', 'Piaty', 'piec@wp.pl', 'nie lubie grac w szachy','Gram bo moj brat gra');
 INSERT INTO baza_chess.user (login, password, name, surname, email, about_me, life_motto) values ('szesc', 'f6', 'UserSzesc', 'Szosty', 'szesc@wp.pl', 'lubie isc do kina','Dzien bez kina dniem straconym');
 INSERT INTO baza_chess.user (login, password, name, surname, email, about_me, life_motto) values ('siedem', 'g7', 'UserSiedem', 'Siodmy', 'siedem@wp.pl', 'lubie pić kawę','chwytaj dzien');
 INSERT INTO baza_chess.user (login, password, name, surname, email, about_me, life_motto) values ('osiem', 'h8', 'UserOsiem', 'Osmy', 'osiem@wp.pl', 'Lubie wakacje','Zawsze jezdze w gory');

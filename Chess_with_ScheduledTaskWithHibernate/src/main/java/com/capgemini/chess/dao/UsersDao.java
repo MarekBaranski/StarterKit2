@@ -10,6 +10,8 @@ public interface UsersDao {
 
 //	public void updateProfile(UserUpdateTO userUpdateProfile);
 	public UserUpdateTO updateProfile(UserUpdateTO userUpdateProfile);
+
+	public UserUpdateTO findProfileToUpdateById(long id) throws ChessException;
 	
 
 	

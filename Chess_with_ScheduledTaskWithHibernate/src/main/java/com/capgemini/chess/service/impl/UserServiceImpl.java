@@ -23,6 +23,14 @@ public class UserServiceImpl implements UserService {
 		} else
 			return userDao.findProfileById(id);
 	}
+	
+	@Override
+	public UserUpdateTO findProfileToUpdateById(long id) throws ChessException {
+		if (userDao.findProfileById(id)==null) {
+			throw new ChessException(ChessException.PROFILENOTFOUND);
+		} else
+			return userDao.findProfileToUpdateById(id);
+	}
 
 	@Override
 	public UserUpdateTO updateProfile(UserUpdateTO userUpdateProfile) {
