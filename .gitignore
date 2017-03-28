@@ -1,0 +1,8 @@
+/target/
+/Chess_with_ScheduledTask/
+/RemoteSystemsTempFiles/
+/Servers/
+/starter-kit-spring_di_aop/
+*.zip
+/.recommenders/
+/.metadata/
