@@ -31,6 +31,10 @@ public class MatchServiceTest {
 	
 	@Autowired
 	private MatchService matchService;
+	
+
+	@Autowired
+	private StatisticService statisticService;
 
 	@Autowired
 	private UserService userService;
@@ -128,6 +132,97 @@ public class MatchServiceTest {
 		assertEquals(10, matchService.showHistoryOfMatch().get(9).getId());
 
 	}
+	
+	@Test
+	public void shouldUpdateWinner1Points() throws ChessException {
+		// when
+		MatchTO match = new MatchTO();
+		UserProfileTO user1 = userService.findProfileById(1L);
+		UserProfileTO user2 = userService.findProfileById(7L);
 
+		match.setResult(ResultMatch.WIN1);
+		match.setUser1(user1);
+		match.setUser2(user2);
+		long beforeMatchPoints = statisticService.showStatisticById(1L).getPoints();
+		// when
+				
+		matchService.addNewMatch(match);
+		em.flush();
+		em.clear();
+		// then
+		long afterMatchPoints = statisticService.showStatisticById(1L).getPoints();
+		assertEquals(1235, beforeMatchPoints);
+		assertEquals(1245, afterMatchPoints);
+	}
+
+	@Test
+	public void shouldUpdateWinner2Points() throws ChessException {
+		// when
+		MatchTO match = new MatchTO();
+		UserProfileTO user1 = userService.findProfileById(1L);
+		UserProfileTO user2 = userService.findProfileById(7L);
+
+		match.setResult(ResultMatch.WIN2);
+		match.setUser1(user1);
+		match.setUser2(user2);
+		long beforeMatchPoints = statisticService.showStatisticById(7L).getPoints();
+		// when
+				
+		matchService.addNewMatch(match);
+		em.flush();
+		em.clear();
+		// then
+		long afterMatchPoints = statisticService.showStatisticById(7L).getPoints();
+		assertEquals(1410, beforeMatchPoints);
+		assertEquals(1420, afterMatchPoints);
+	}
+	
+	@Test
+	public void shouldUpdateTwoWinnerPointsWhenIsDrawn() throws ChessException {
+		// when
+		MatchTO match = new MatchTO();
+		UserProfileTO user1 = userService.findProfileById(1L);
+		UserProfileTO user2 = userService.findProfileById(7L);
+
+		match.setResult(ResultMatch.DRAWN);
+		match.setUser1(user1);
+		match.setUser2(user2);
+		long beforeMatchPoints1 = statisticService.showStatisticById(1L).getPoints();
+		long beforeMatchPoints2 = statisticService.showStatisticById(7L).getPoints();
+		// when
+				
+		matchService.addNewMatch(match);
+		em.flush();
+		em.clear();
+		// then
+		long afterMatchPoints1 = statisticService.showStatisticById(1L).getPoints();
+		long afterMatchPoints2 = statisticService.showStatisticById(7L).getPoints();
+		assertEquals(1235, beforeMatchPoints1);
+		assertEquals(1410, beforeMatchPoints2);
+		assertEquals(1240, afterMatchPoints1);
+		assertEquals(1415, afterMatchPoints2);
+	}
+	
+	@Test
+	public void shouldUpdateWinnerLevel() throws ChessException {
+		// when
+		MatchTO match = new MatchTO();
+		UserProfileTO user1 = userService.findProfileById(10L);
+		UserProfileTO user2 = userService.findProfileById(7L);
+
+		match.setResult(ResultMatch.WIN1);
+		match.setUser1(user1);
+		match.setUser2(user2);
+		long beforeMatchLevel = statisticService.showStatisticById(10L).getLevel();
+		// when
+				
+		matchService.addNewMatch(match);
+		em.flush();
+		em.clear();
+		// then
+		long afterMatchLevel = statisticService.showStatisticById(10L).getLevel();
+		assertEquals(19, beforeMatchLevel);
+		assertEquals(20, afterMatchLevel);
+	}
 
 }

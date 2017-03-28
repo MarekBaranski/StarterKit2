@@ -10,16 +10,16 @@ INSERT INTO baza_chess.user (login, password, name, surname, email, about_me, li
 INSERT INTO baza_chess.user (login, password, name, surname, email, about_me, life_motto) values ('dziewiec', 'i9', 'UserDziewiec', 'Dziewiaty', 'Dziewiec@wp.pl', 'Nic nie lubie','Nic nie lubie i zyje');
 INSERT INTO baza_chess.user (login, password, name, surname, email, about_me, life_motto) values ('dziesiec', 'j10', 'UserDziesiec', 'Dziesiaty', 'Dziesiec@wp.pl', 'gram w gry','Gram NFS II');
 
-INSERT INTO baza_chess.statistic (level, position, points, user_entity_id) values (1, 19, 623, 2);
-INSERT INTO baza_chess.statistic (level, position, points, user_entity_id) values (4, 14, 1024, 5);
-INSERT INTO baza_chess.statistic (level, position, points, user_entity_id) values (7, 7, 1478, 4);
-INSERT INTO baza_chess.statistic (level, position, points, user_entity_id) values (5, 11, 1298, 3);
-INSERT INTO baza_chess.statistic (level, position, points, user_entity_id) values (8, 5, 1555, 9);
-INSERT INTO baza_chess.statistic (level, position, points, user_entity_id) values (5, 12, 1236, 1);
-INSERT INTO baza_chess.statistic (level, position, points, user_entity_id) values (7, 8, 1410, 7);
-INSERT INTO baza_chess.statistic (level, position, points, user_entity_id) values (8, 5, 1555, 6);
-INSERT INTO baza_chess.statistic (level, position, points, user_entity_id) values (6, 9, 1345, 8);
-INSERT INTO baza_chess.statistic (level, position, points, user_entity_id) values (10, 1, 1923, 10);
+INSERT INTO baza_chess.statistic (level, position, points, user_entity_id) values (6, 19, 620, 2);
+INSERT INTO baza_chess.statistic (level, position, points, user_entity_id) values (10, 14, 1025, 5);
+INSERT INTO baza_chess.statistic (level, position, points, user_entity_id) values (14, 7, 1475, 4);
+INSERT INTO baza_chess.statistic (level, position, points, user_entity_id) values (12, 11, 125, 3);
+INSERT INTO baza_chess.statistic (level, position, points, user_entity_id) values (15, 5, 1555, 9);
+INSERT INTO baza_chess.statistic (level, position, points, user_entity_id) values (12, 12, 1235, 1);
+INSERT INTO baza_chess.statistic (level, position, points, user_entity_id) values (14, 8, 1410, 7);
+INSERT INTO baza_chess.statistic (level, position, points, user_entity_id) values (15, 5, 1555, 6);
+INSERT INTO baza_chess.statistic (level, position, points, user_entity_id) values (13, 9, 1345, 8);
+INSERT INTO baza_chess.statistic (level, position, points, user_entity_id) values (19, 1, 1990, 10);
 
 
 INSERT INTO baza_chess.matchs (result, user1_id, user2_id) values ('WIN1',1,2);

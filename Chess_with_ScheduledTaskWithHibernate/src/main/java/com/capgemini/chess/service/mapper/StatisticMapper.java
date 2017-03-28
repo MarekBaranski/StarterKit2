@@ -12,7 +12,7 @@ public class StatisticMapper {
 		if (statisticEntity != null) {
 
 			StatisticTO statisticTO = new StatisticTO();
-
+			statisticTO.setId(statisticEntity.getId());
 			statisticTO.setLevel(statisticEntity.getLevel());
 			statisticTO.setPoints(statisticEntity.getPoints());
 			statisticTO.setPosition(statisticEntity.getPosition());
@@ -26,6 +26,7 @@ public class StatisticMapper {
 	public static StatisticEntity map(StatisticTO statisticTO) {
 		if (statisticTO != null) {
 			StatisticEntity statisticEntity = new StatisticEntity();
+			statisticEntity.setId(statisticTO.getId());
 			statisticEntity.setLevel(statisticTO.getLevel());
 			statisticEntity.setPoints(statisticTO.getPoints());
 			statisticEntity.setPosition(statisticTO.getPosition());

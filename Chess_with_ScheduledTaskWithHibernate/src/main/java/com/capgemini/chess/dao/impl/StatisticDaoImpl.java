@@ -22,14 +22,12 @@ public class StatisticDaoImpl extends AbstractDao<StatisticEntity, Long> impleme
 				StatisticEntity.class);
 		query.setParameter("userId", userId);
 
-		if (findOne(userId)==null) {
+		if (findOne(userId) == null) {
 
 			throw new ChessException(ChessException.PROFILENOTFOUND);
 		} else
 			return StatisticMapper.map(query.getSingleResult());
 	}
-	
-	
 
 	@Override
 	public List<StatisticTO> showRanking() {
@@ -37,6 +35,12 @@ public class StatisticDaoImpl extends AbstractDao<StatisticEntity, Long> impleme
 				"select statistic from StatisticEntity statistic order by statistic.points DESC",
 				StatisticEntity.class);
 		return StatisticMapper.map2TOs(query.getResultList());
+	}
+
+	@Override
+	public void updateStatistic(StatisticTO statistic) {
+
+		update(StatisticMapper.map(statistic));
 	}
 
 }

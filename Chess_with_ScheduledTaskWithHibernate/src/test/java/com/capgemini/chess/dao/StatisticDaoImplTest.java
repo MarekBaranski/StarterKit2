@@ -43,7 +43,7 @@ public class StatisticDaoImplTest {
 		long points = findStatistic.getPoints();
 		// than
 		assertNotNull(points);
-		assertEquals(1024, points);
+		assertEquals(1025, points);
 
 	}
 	

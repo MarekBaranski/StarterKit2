@@ -89,7 +89,7 @@ public class UserServiceTest {
 		profile.setLifeMotto("najbardziej to lubię grać");
 		userService.updateProfile(profile);
 		em.flush();
-		//em.clear();
+		em.clear();
 		
 
 		// then

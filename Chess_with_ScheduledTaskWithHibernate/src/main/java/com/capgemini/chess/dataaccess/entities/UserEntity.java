@@ -13,11 +13,11 @@ import javax.persistence.Table;
 @Table(name = "user")
 public class UserEntity extends AbstractEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id
 	@GeneratedValue
 	private long id;
-	@Column(nullable = false,  unique = true)
+	@Column(nullable = false, unique = true)
 	private String login;
 	@Column(nullable = false)
 	private String password;
@@ -30,15 +30,7 @@ public class UserEntity extends AbstractEntity implements Serializable {
 	private String aboutMe;
 	@Lob
 	private String lifeMotto;
-	
-//	@OneToMany(mappedBy = "user1", cascade = CascadeType.ALL, orphanRemoval = true)
-//	private List<MatchEntity> matchsUserId;
-//	
-//	@OneToMany(mappedBy = "user2", cascade = CascadeType.ALL, orphanRemoval = true)
-//	private List<MatchEntity> matchUserId2;
-	
 
-	
 	public UserEntity() {
 
 	}
@@ -141,7 +133,5 @@ public class UserEntity extends AbstractEntity implements Serializable {
 	public void setLifeMotto(String lifeMotto) {
 		this.lifeMotto = lifeMotto;
 	}
-
-
 
 }

@@ -7,7 +7,7 @@ import com.capgemini.chess.dataaccess.entities.UserEntity;
 public class StatisticTO extends AbstractTo implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-
+	private long id;
 	private long level;
 	private long position;
 	private long points;
@@ -23,6 +23,16 @@ public class StatisticTO extends AbstractTo implements Serializable {
 		this.position = position;
 		this.points = points;
 		this.userEntity = userEntity;
+	}
+	
+	
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
 	}
 
 	public long getLevel() {

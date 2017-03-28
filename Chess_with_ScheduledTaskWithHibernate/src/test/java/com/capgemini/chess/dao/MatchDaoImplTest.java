@@ -2,13 +2,11 @@ package com.capgemini.chess.dao;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.fail;
 
 import java.util.List;
 
-import javax.persistence.EntityManager;
 import javax.transaction.Transactional;
 
 import org.junit.Test;
@@ -20,7 +18,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 import com.capgemini.chess.enumerated.ResultMatch;
 import com.capgemini.chess.exception.ChessException;
 import com.capgemini.chess.service.to.MatchTO;
-import com.capgemini.chess.service.to.UserUpdateTO;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -28,13 +25,7 @@ import com.capgemini.chess.service.to.UserUpdateTO;
 public class MatchDaoImplTest {
 
 	@Autowired
-	private EntityManager em;
-	
-	@Autowired
 	private MatchDao matchDao;
-
-	@Autowired
-	private UsersDao userDao;
 
 	@Test
 	public void testAutowiredSuccessful() {
@@ -100,33 +91,6 @@ public class MatchDaoImplTest {
 		assertFalse(matchTO.isEmpty());
 		assertEquals(2, matchTO.size());
 
-	}
-
-	@Test
-	public void updateProfile() throws ChessException {
-
-		UserUpdateTO profile = new UserUpdateTO();
-
-		profile = userDao.findProfileToUpdateById(5L);
-		// then
-		String actualMotto = profile.getLifeMotto();
-
-		// when
-
-		profile.setEmail("piecipol@wp.pl");
-		profile.setLifeMotto("najbardziej to lubię grać");
-		userDao.updateProfile(profile);
-		em.flush();
-		em.clear();
-		
-
-		// then
-		String newMotto = profile.getLifeMotto();
-
-		assertEquals("Gram bo moj brat gra", actualMotto);
-		assertEquals("najbardziej to lubię grać", newMotto);
-		assertNotEquals(actualMotto, profile.getLifeMotto());
-		assertNotEquals(profile.getEmail(), "pięć@wp.pl");
 	}
 
 }

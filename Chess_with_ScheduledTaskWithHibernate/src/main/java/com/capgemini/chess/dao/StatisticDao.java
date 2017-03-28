@@ -7,10 +7,10 @@ import com.capgemini.chess.service.to.StatisticTO;
 
 public interface StatisticDao {
 
-	
 	public StatisticTO showStatisticById(long userId) throws ChessException;
-	
-	public List <StatisticTO> showRanking();
 
+	public List<StatisticTO> showRanking();
+
+	public void updateStatistic(StatisticTO statistic);
 
 }

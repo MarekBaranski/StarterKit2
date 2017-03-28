@@ -15,6 +15,7 @@ public interface MatchService {
 
 	public List<MatchTO> showAllMatchForUserById(long userId);
 
-	public MatchTO addNewMatch(MatchTO match);
+	public MatchTO addNewMatch(MatchTO match) throws ChessException;
+	
 
 }
