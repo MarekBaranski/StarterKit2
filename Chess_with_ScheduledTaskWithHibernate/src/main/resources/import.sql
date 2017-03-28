@@ -11,9 +11,9 @@ INSERT INTO baza_chess.user (login, password, name, surname, email, about_me, li
 INSERT INTO baza_chess.user (login, password, name, surname, email, about_me, life_motto) values ('dziesiec', 'j10', 'UserDziesiec', 'Dziesiaty', 'Dziesiec@wp.pl', 'gram w gry','Gram NFS II');
 
 INSERT INTO baza_chess.statistic (level, position, points, user_entity_id) values (6, 19, 620, 2);
-INSERT INTO baza_chess.statistic (level, position, points, user_entity_id) values (10, 14, 1025, 5);
+INSERT INTO baza_chess.statistic (level, position, points, user_entity_id) values (14, 14, 1470, 5);
 INSERT INTO baza_chess.statistic (level, position, points, user_entity_id) values (14, 7, 1475, 4);
-INSERT INTO baza_chess.statistic (level, position, points, user_entity_id) values (12, 11, 125, 3);
+INSERT INTO baza_chess.statistic (level, position, points, user_entity_id) values (1, 11, 125, 3);
 INSERT INTO baza_chess.statistic (level, position, points, user_entity_id) values (15, 5, 1555, 9);
 INSERT INTO baza_chess.statistic (level, position, points, user_entity_id) values (12, 12, 1235, 1);
 INSERT INTO baza_chess.statistic (level, position, points, user_entity_id) values (14, 8, 1410, 7);

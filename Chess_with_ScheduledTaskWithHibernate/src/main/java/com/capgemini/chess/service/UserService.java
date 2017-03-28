@@ -11,7 +11,7 @@ public interface UserService {
 
 	public UserUpdateTO updateProfile(UserUpdateTO userUpdateProfile);
 
-	UserUpdateTO findProfileToUpdateById(long id) throws ChessException;
+	public UserUpdateTO findProfileToUpdateById(long id) throws ChessException;
 	
 
 }

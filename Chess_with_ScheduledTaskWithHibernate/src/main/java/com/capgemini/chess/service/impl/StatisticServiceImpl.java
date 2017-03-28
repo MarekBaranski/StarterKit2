@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 import com.capgemini.chess.dao.StatisticDao;
 import com.capgemini.chess.exception.ChessException;
 import com.capgemini.chess.service.StatisticService;
-import com.capgemini.chess.service.mapper.StatisticMapper;
 import com.capgemini.chess.service.to.StatisticTO;
 
 @Service

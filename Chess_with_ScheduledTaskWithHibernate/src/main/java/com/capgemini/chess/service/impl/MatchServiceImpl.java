@@ -2,8 +2,6 @@ package com.capgemini.chess.service.impl;
 
 import java.util.List;
 
-import javax.persistence.EntityManager;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -68,12 +66,23 @@ public class MatchServiceImpl implements MatchService {
 
 			statistic2.setPoints(points + 10);
 			statisticDao.updateStatistic(statistic2);
+			long pointsLevel = statistic.getPoints();
+			statistic.setLevel(pointsLevel / 100);
+			statisticDao.updateStatistic(statistic);
 		} else {
 			long points = statisticDao.showStatisticById(match.getUser1().getId()).getPoints();
 			long points2 = statisticDao.showStatisticById(match.getUser2().getId()).getPoints();
 
 			statistic.setPoints(points + 5);
 			statistic2.setPoints(points2 + 5);
+			statisticDao.updateStatistic(statistic);
+			statisticDao.updateStatistic(statistic2);
+			
+			long pointsLevel = statistic.getPoints();
+			long pointsLevel2 = statistic.getPoints();
+			
+			statistic.setLevel(pointsLevel / 100);
+			statistic.setLevel(pointsLevel2 / 100);
 			statisticDao.updateStatistic(statistic);
 			statisticDao.updateStatistic(statistic2);
 		}

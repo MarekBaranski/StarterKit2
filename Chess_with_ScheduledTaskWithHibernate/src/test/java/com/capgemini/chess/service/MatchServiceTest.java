@@ -225,4 +225,5 @@ public class MatchServiceTest {
 		assertEquals(20, afterMatchLevel);
 	}
 
+	
 }
