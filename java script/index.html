@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Gra kółĸo i krzyżyk</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="style.css" />
+
+</head>
+
+<body onload="startGame()">
+
+    <a class="buttonReset" href='index.html'>Reset Game</a>
+
+    <h1>TicTacToe</h1>
+    <div class="form">
+
+        <input type="radio" name="player" value="O" id="players1">
+        <label for="players1">begin Player "O"</label>
+        <input type="radio" name="player" value="X" id="players2" checked>
+        <label for="players2">begin Player "X"</label><br><br>
+        <button class="button" onclick="checkPlayer()">Change player</button>
+
+    </div><br>
+
+    <div class="info" id="info">message</div> <br>
+
+    <div class="score" id="scoreO">Score for <b>'O'</b>: </div>
+    <div class="score" id="scoreX">Score for <b>'X'</b>: </div>
+    <div class="score" id="drawn">Number of <b>'Drawn'</b>: </div> <br>
+
+
+    <table class="table">
+        <tr>
+            <td class="Field" onClick="nextMove(this);" id="0"></td>
+            <td class="Field" onClick="nextMove(this);" id="1"></td>
+            <td class="Field" onClick="nextMove(this);" id="2"></td>
+        </tr>
+        <tr>
+            <td class="Field" onClick="nextMove(this);" id="3"></td>
+            <td class="Field" onClick="nextMove(this);" id="4"></td>
+            <td class="Field" onClick="nextMove(this);" id="5"></td>
+        </tr>
+        <tr>
+            <td class="Field" onClick="nextMove(this);" id="6"></td>
+            <td class="Field" onClick="nextMove(this);" id="7"></td>
+            <td class="Field" onClick="nextMove(this);" id="8"></td>
+        </tr>
+    </table>
+    <br>
+
+    <button class="click" onclick="startGame();">New Game</button>
+    <button class="click" onclick="whoWin();">Who won the game</button>
+
+
+    <script type="text/javascript" src="game.js"></script>
+    <script type="text/javascript" src="winner-checker.js"></script>
+    <script type="text/javascript" src="history.js"></script>
+
+</body>
+
+</html>
