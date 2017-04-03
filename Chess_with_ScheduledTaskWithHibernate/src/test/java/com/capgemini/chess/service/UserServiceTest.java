@@ -16,6 +16,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import com.capgemini.chess.dao.UsersDao;
 import com.capgemini.chess.exception.ChessException;
 import com.capgemini.chess.service.to.UserProfileTO;
 import com.capgemini.chess.service.to.UserUpdateTO;
@@ -34,6 +35,9 @@ public class UserServiceTest {
 	
 	@Autowired
 	private EntityManager em;
+	
+	@Autowired
+	private UsersDao userDao;
 	
 	@Test
 	public void shouldShowProfileById() throws ChessException {
@@ -55,7 +59,7 @@ public class UserServiceTest {
 		UserProfileTO findProfile = userService.findProfileById(12L);
 
 		// then
-		fail("This method should throw SomeException");
+//		fail("This method should throw SomeException"); pry try catch ma sens
 
 	}
 
@@ -91,7 +95,7 @@ public class UserServiceTest {
 		em.flush();
 		em.clear();
 		
-
+		profile = userDao.findProfileToUpdateById(5L);
 		// then
 		String newMotto = profile.getLifeMotto();
 

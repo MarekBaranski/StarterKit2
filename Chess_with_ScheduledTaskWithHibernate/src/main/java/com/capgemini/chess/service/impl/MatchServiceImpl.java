@@ -77,10 +77,10 @@ public class MatchServiceImpl implements MatchService {
 			statistic2.setPoints(points2 + 5);
 			statisticDao.updateStatistic(statistic);
 			statisticDao.updateStatistic(statistic2);
-			
+
 			long pointsLevel = statistic.getPoints();
 			long pointsLevel2 = statistic.getPoints();
-			
+
 			statistic.setLevel(pointsLevel / 100);
 			statistic.setLevel(pointsLevel2 / 100);
 			statisticDao.updateStatistic(statistic);

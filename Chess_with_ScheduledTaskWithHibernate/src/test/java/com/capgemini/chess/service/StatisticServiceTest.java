@@ -85,6 +85,7 @@ public class StatisticServiceTest {
 
 		assertFalse(statisticTO.isEmpty());
 		assertEquals(6, statisticTO.get(2).getUserEntity().getId());
+		
 
 	}
 	
